@@ -5,4 +5,8 @@
     <string name="dividir">Dividir</string>
     <string name="somar">Somar</string>
     <string name="calcular">Calcular</string>
+    <string name="multiplica_o">Multiplicação</string>
+    <string name="soma">Soma</string>
+    <string name="subtra_o">Subtração</string>
+    <string name="divis_o">Divisão</string>
 </resources>

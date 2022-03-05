@@ -46,11 +46,10 @@ class MainActivity : AppCompatActivity() {
                 divisao = valor1.div(valor2);
             }
 
-            Snackbar.make(
-                view, "Valores calculados: Soma: $soma Subtração: $subtracao Multiplicação: $multiplicacao Divisão: $divisao",
-                Snackbar.LENGTH_LONG
-            ).setAction("Action", null).show();
-
+            (findViewById<EditText>(R.id.edtSoma)).setText(String.format("%.2f", soma));
+            (findViewById<EditText>(R.id.edtSubtracao)).setText(String.format("%.2f", subtracao));
+            (findViewById<EditText>(R.id.edtMultiplicacao)).setText(String.format("%.2f", multiplicacao));
+            (findViewById<EditText>(R.id.edtDivisao)).setText(String.format("%.2f", divisao));
         }
     }
 }
