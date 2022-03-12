@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nickolas/Documents/GitHub/kotlin-playground/CalculadoraDeChurrasco/app/src/main/res/layout/fragment_form.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/Nickolas/Documents/GitHub/kotlin-playground/CalculadoraDeChurrasco/app/src/main/res/layout/fragment_resultado.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_form.xml" value="0.556360371907552" />
         <entry key="app/src/main/res/layout/fragment_resultado.xml" value="0.13675652175653175" />
       </map>

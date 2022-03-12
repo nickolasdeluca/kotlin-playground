@@ -7,29 +7,46 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-import com.google.android.material.snackbar.Snackbar
 
-private const val ARG_PARAM1 = "0";
-private const val ARG_PARAM2 = "0";
-private const val ARG_PARAM3 = "0";
+private var AMOUNTMEN: Int = 0;
+private var AMOUNTWOMEN: Int = 0;
+private var AMOUNTCHILDREN: Int = 0;
 
 class ResultadoFragment : Fragment() {
-    private var param1: Int = 0;
-    private var param2: Int = 0;
-    private var param3: Int = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
-        arguments?.let {
-            param1 = it.getInt(ARG_PARAM1);
-            param2 = it.getInt(ARG_PARAM2);
-            param3 = it.getInt(ARG_PARAM3);
-        }
     }
 
-    fun howManySausages(amountMen: Int, amountWomen: Int, amountChildren: Int): Double {
-        return amountMen.times(200).plus(amountWomen.times(180)).plus(amountChildren.times(100)).toDouble();
+    private fun howMuchMeat(amountMen: Int, amountWomen: Int, amountChildren: Int): Double {
+        return 0
+            .plus(amountMen.times(300))
+            .plus(amountWomen.times(280))
+            .plus(amountChildren.times(150))
+            .toDouble();
+    }
+
+    private fun howMuchSausage(amountMen: Int, amountWomen: Int, amountChildren: Int): Double {
+        return 0
+            .plus(amountMen.times(200))
+            .plus(amountWomen.times(180))
+            .plus(amountChildren.times(100))
+            .toDouble();
+    }
+
+    private fun howMuchBeer(amountMen: Int, amountWomen: Int): Double {
+        return 0
+            .plus(amountMen.times(1500))
+            .plus(amountWomen.times(1000))
+            .toDouble();
+    }
+
+    private fun howMuchSoda(amountMen: Int, amountWomen: Int, amountChildren: Int): Double {
+        return 0
+            .plus(amountMen.times(250))
+            .plus(amountWomen.times(450))
+            .plus(amountChildren.times(300))
+            .toDouble();
     }
 
     override fun onCreateView(
@@ -38,13 +55,26 @@ class ResultadoFragment : Fragment() {
     ): View? {
         val inflate = inflater.inflate(R.layout.fragment_resultado, container, false);
 
+        val edtMeat = inflate.findViewById<EditText>(R.id.edtMeat);
         val edtSausages = inflate.findViewById<EditText>(R.id.edtSausage);
+        val edtBeer = inflate.findViewById<EditText>(R.id.edtBeer);
+        val edtSoda = inflate.findViewById<EditText>(R.id.edtSoda);
 
-        val amountMen = param1.toInt();
-        val amountWomen = param2.toInt();
-        val amountChildren = param3.toInt();
+        edtMeat.setText(String.format("%.2f", howMuchMeat(AMOUNTMEN, AMOUNTWOMEN, AMOUNTCHILDREN)));
+        edtMeat.isFocusable = false;
+        edtMeat.isFocusableInTouchMode = false;
 
-        edtSausages.setText(String.format("%.2f", howManySausages(amountMen, amountWomen, amountChildren)));
+        edtSausages.setText(String.format("%.2f", howMuchSausage(AMOUNTMEN, AMOUNTWOMEN, AMOUNTCHILDREN)));
+        edtSausages.isFocusable = false;
+        edtSausages.isFocusableInTouchMode = false;
+
+        edtBeer.setText(String.format("%.2f", howMuchBeer(AMOUNTMEN, AMOUNTWOMEN)));
+        edtBeer.isFocusable = false;
+        edtBeer.isFocusableInTouchMode = false;
+
+        edtSoda.setText(String.format("%.2f", howMuchSoda(AMOUNTMEN, AMOUNTWOMEN, AMOUNTCHILDREN)));
+        edtSoda.isFocusable = false;
+        edtSoda.isFocusableInTouchMode = false;
 
         val btnBack = inflate.findViewById<Button>(R.id.btnBack);
 
@@ -67,9 +97,9 @@ class ResultadoFragment : Fragment() {
         fun newInstance(param1: Int, param2: Int, param3: Int) =
             ResultadoFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_PARAM1, param1);
-                    putInt(ARG_PARAM2, param2);
-                    putInt(ARG_PARAM3, param3);
+                    AMOUNTMEN = param1;
+                    AMOUNTWOMEN = param2;
+                    AMOUNTCHILDREN = param3;
                 }
             }
     }
